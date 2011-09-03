@@ -1,7 +1,4 @@
 <?php
-
-require_once 'PHPUnit/Extensions/TicketListener/Jira/StatusConverter.php';
-
 /**
  * @covers PHPUnit_Extensions_TicketListener_Jira_StatusConverter
  */

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="PHPUnit/Extensions/TicketListener/Jira/Autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         strict="true"
+         verbose="true">
+  <testsuites>
+    <testsuite name="PHPUnit_TicketListener_Jira">
+      <directory suffix="Test.php">Tests</directory>
+    </testsuite>
+  </testsuites>
+
+  <filter>
+    <whitelist addUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">PHPUnit</directory>
+      <exclude>
+        <file>PHPUnit/Extensions/TicketListener/Jira/Autoload.php</file>
+      </exclude>
+    </whitelist>
+  </filter>
+</phpunit>
