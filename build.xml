@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="phpunit-ticketlistener-jira" default="phpab" basedir=".">
+ <target name="phpab" description="Generates the autoloader using PHPAB">
+  <exec executable="phpab">
+   <arg line='-o PHPUnit/Extensions/TicketListener/Jira/Autoload.php -c -t PHPUnit/Extensions/TicketListener/Jira/Autoload.php.in --indent "          " PHPUnit' />
+  </exec>
+ </target>
+</project>

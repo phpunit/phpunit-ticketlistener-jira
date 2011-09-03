@@ -1,8 +1,4 @@
 <?php
-
-require_once 'PHPUnit/Extensions/TicketListener/Jira/Client.php';
-require_once 'PHPUnit/Extensions/TicketListener/Jira/StatusConverter.php';
-
 /**
  * TicketListener which will resolve and reopen issues in Jira based on PHPUnit
  * test results.<p>
