@@ -42,38 +42,26 @@
  * @since      File available since Release 1.0.0
  */
 
-function phpunit_ticketlistener_jira_autoload($class = NULL)
-{
-    static $classes = NULL;
-    static $path = NULL;
+spl_autoload_register(
+  function ($class)
+  {
+      static $classes = NULL;
+      static $path = NULL;
 
-    if ($classes === NULL) {
-        $classes = array(
-          'phpunit_extensions_ticketlistener_jira_client' => '/Extensions/TicketListener/Jira/Client.php',
-          'phpunit_extensions_ticketlistener_jira_statusconverter' => '/Extensions/TicketListener/Jira/StatusConverter.php',
-          'phpunit_extesions_ticketlistener_jira' => '/Extensions/TicketListener/Jira.php'
-        );
+      if ($classes === NULL) {
+          $classes = array(
+            'phpunit_extensions_ticketlistener_jira_client' => '/Extensions/TicketListener/Jira/Client.php',
+            'phpunit_extensions_ticketlistener_jira_statusconverter' => '/Extensions/TicketListener/Jira/StatusConverter.php',
+            'phpunit_extesions_ticketlistener_jira' => '/Extensions/TicketListener/Jira.php'
+          );
 
-        $path = dirname(dirname(dirname(dirname(__FILE__))));
-    }
+          $path = dirname(dirname(dirname(dirname(__FILE__))));
+      }
 
-    if ($class === NULL) {
-        $result = array(__FILE__);
+      $cn = strtolower($class);
 
-        foreach ($classes as $file) {
-            $result[] = $path . $file;
-        }
-
-        return $result;
-    }
-
-    $cn = strtolower($class);
-
-    if (isset($classes[$cn])) {
-        $file = $path . $classes[$cn];
-
-        require $file;
-    }
-}
-
-spl_autoload_register('phpunit_ticketlistener_jira_autoload');
+      if (isset($classes[$cn])) {
+          require $path . $classes[$cn];
+      }
+  }
+);
